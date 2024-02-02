@@ -771,6 +771,9 @@ class Dicom_Pixeler extends Nanodicom {
 	 */
 	protected function _allocate_color_gray($image, $gray)
 	{
+       	        // 确保$gray被四舍五入到最接近的整数
+                $gray = (int)round($gray);
+
 		switch (self::$driver)
 		{
 			case 'gd': return imagecolorallocate($image, $gray, $gray, $gray);
